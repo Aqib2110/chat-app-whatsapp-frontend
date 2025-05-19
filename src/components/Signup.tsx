@@ -1,8 +1,9 @@
 import React from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 const SignUpForm = () => {
-
+  const [loading, setloading] = useState(false);
 const navigate = useNavigate();
  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -10,7 +11,8 @@ const navigate = useNavigate();
      const name = form.get("name");
     const email = form.get("email");
     const password = form.get("password");
-   fetch("http://localhost:3000/signup",{
+  setloading(true)
+   fetch("https://chat-app-whatsapp-backend.vercel.app/signup",{
   method:"POST",
    headers: {
     "Content-Type": "application/json",
@@ -23,11 +25,13 @@ const navigate = useNavigate();
  }).then(res=>res.json()).then(data=>{
   if(data.message)
   {
+    setloading(false);
 toast.success("signup successfully")
 navigate("/signin");
   }
  }).catch(err=>{
-  toast.error("signup failed");
+      setloading(false);
+  toast.error(err.error);
   console.log(err)});
      (e.currentTarget.elements.namedItem("name") as HTMLInputElement).value = "";
     (e.currentTarget.elements.namedItem("email") as HTMLInputElement).value = "";
@@ -60,11 +64,11 @@ navigate("/signin");
             required
             className="w-full px-4 py-2 rounded bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-          <button
+         <button
             type="submit"
             className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
           >
-            Sign Up
+          {loading ? "Signing up..." : "Sign Up"}  
           </button>
         </form>
         <p className="text-center text-sm text-gray-400 mt-4">
@@ -79,3 +83,4 @@ navigate("/signin");
 };
 
 export default SignUpForm;
+
