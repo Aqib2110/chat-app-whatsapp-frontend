@@ -1,16 +1,17 @@
 import React from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 const SignInForm = () => {
-//  const inputRef1 = useRef(null);
-//  const inputRef2 = useRef(null);
+const [load, setload] = useState(false);
  const navigate = useNavigate();
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
     const email = form.get("email");
     const password = form.get("password");
-     fetch("https://chat-app-whatsapp-backend.vercel.app/signin",{
+    setload(true);
+     fetch("http://localhost:3000/signin",{
   method:"POST",
    headers: {
     "Content-Type": "application/json",
@@ -22,15 +23,18 @@ const SignInForm = () => {
  }).then(res=>res.json()).then(data=>{
   if(data.token)
   {
+     setload(false);
 toast.success("signin successfully")
 localStorage.setItem("token",data.token);
 localStorage.setItem("id",data.id)
 navigate("/");
   }
   else{
+     setload(false);
     toast.success(data.message);
   }
  }).catch(err=>{
+   setload(false);
   toast.error("signup failed");
   console.log(err)});
     console.log(email, password);
@@ -63,7 +67,7 @@ navigate("/");
             type="submit"
             className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
           >
-            Sign In
+           {load ? "Signing In..." : "Sign In"} 
           </button>
         </form>
         <p className="text-center text-sm text-gray-400 mt-4">
@@ -78,3 +82,4 @@ navigate("/");
 };
 
 export default SignInForm;
+
