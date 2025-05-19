@@ -8,7 +8,7 @@ const [fet, setfet] = useState(true)
     if (!contact._id) return;
    if(fet)
     {
-     fetch("http://localhost:3000/chat", {
+     fetch("https://chat-app-whatsapp-backend.vercel.app/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -26,7 +26,7 @@ const [fet, setfet] = useState(true)
     if (!contact._id) return;
     let intervalid:any;
  intervalid = setInterval(() => {
-    fetch("http://localhost:3000/chat", {
+    fetch("https://chat-app-whatsapp-backend.vercel.app/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -48,7 +48,7 @@ const [fet, setfet] = useState(true)
     if (!message) return;
     try {
      
-      await fetch("http://localhost:3000/message", {
+      await fetch("https://chat-app-whatsapp-backend.vercel.app/message", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
