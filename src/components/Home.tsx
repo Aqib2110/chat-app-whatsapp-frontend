@@ -78,12 +78,11 @@ const Home = () => {
   };
 
   const memoizedContact = useMemo(() => contact, [contact]);
-
-  return (
-    <>
+return (
+ <>
       {!open ? (
         <div className='h-[100vh] md:hidden w-[100vw] flex'>
-          <div className='w-[100vw] text-white bg-black border h-[100vh]'>
+          <div className='w-[100vw] text-white bg-black border-r h-[100vh]'>
             <div className='h-[50px]'>
               <input onChange={(e) => handleChange(e.target.value)} type="text" ref={input1} className='rounded-md w-full p-3' placeholder='search contact...' />
             </div>
@@ -117,7 +116,7 @@ const Home = () => {
       )}
 
       <div className='h-[100vh] justify-between hidden md:flex w-[100vw]'>
-        <div className='w-[40vw] text-white bg-black border h-full'>
+        <div className='w-[40vw] text-white bg-black border-r h-full'>
           <div className='h-[50px]'>
             <input onChange={(e) => handleChange(e.target.value)} type="text" ref={input1} className='rounded-md w-full p-3' placeholder='search contact...' />
           </div>
