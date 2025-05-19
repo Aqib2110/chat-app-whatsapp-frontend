@@ -68,15 +68,16 @@ const [fet, setfet] = useState(true)
     }
   };
 
+
   return (
     <>
       {/* Desktop View */}
-      <div className='border hidden md:block bg-black h-full'>
+      <div className=' hidden md:block bg-black h-full'>
         <div className='flex justify-between px-3 h-[5vh] items-center border-b text-white'>
           <p className=''>{contact.username}</p>
           <h1 className='text-green-500 text-2xl'><a href='/'>WhatsApp</a></h1>
         </div>
-        <div className='h-[91vh] border flex flex-col overflow-auto text-white'>
+        <div className='h-[85vh]  flex flex-col overflow-auto text-white'>
           {messag.length === 0 ?(
             <div className='flex mt-55 self-center'>No Messages</div>
           ) : (
@@ -88,19 +89,19 @@ const [fet, setfet] = useState(true)
             ))
           )}
         </div>
-        <div className='flex h-[4vh] justify-center items-center text-white mb-0 gap-5'>
+        <div className='flex  h-[10vh] justify-center items-center text-white mb-0 gap-5'>
           <input type="text" ref={inputRef} className='bg-white ml-1 w-[77%] px-2 h-[90%] text-black' placeholder='Message...' />
           <button onClick={() => sendMessage(inputRef)} className='bg-white text-black h-[90%] w-[20%]'>send</button>
         </div>
       </div>
 
       {/* Mobile View */}
-      <div className='border w-[100vw] md:hidden bg-black h-[100vh]'>
+      <div className=' w-[100vw] md:hidden bg-black h-[100vh]'>
         <div className='flex justify-between px-1 h-[5vh] items-center border-b text-white'>
           <p className=''>{contact.username}</p>
           <h1 className='text-green-500 text-2xl'><a href='/'>WhatsApp</a></h1>
         </div>
-        <div className='h-[90vh] border flex flex-col overflow-auto text-white'>
+        <div className='h-[90vh]  flex flex-col overflow-auto text-white'>
           { messag.length === 0 ? (
             <div className='flex mt-55 self-center'>No Messages</div>
           ) : (
@@ -112,7 +113,7 @@ const [fet, setfet] = useState(true)
             ))
           )}
         </div>
-        <div className='flex justify-center items-center border h-[5vh] text-white mb-0 gap-5'>
+        <div className='flex justify-center items-center  h-[5vh] text-white mb-0 gap-5'>
           <input type="text" ref={inputRef1} className='bg-white ml-1 w-[77%] px-2 h-[90%]  text-black' placeholder='Message...' />
           <button onClick={() => sendMessage(inputRef1)} className='bg-white text-black h-[90%] py-1 w-[20%]'>send</button>
         </div>
@@ -122,4 +123,6 @@ const [fet, setfet] = useState(true)
 };
 
 export default memo(Chat3);
+
+
 
