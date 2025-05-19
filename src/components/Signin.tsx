@@ -10,7 +10,7 @@ const SignInForm = () => {
     const form = new FormData(e.currentTarget);
     const email = form.get("email");
     const password = form.get("password");
-     fetch("http://localhost:3000/signin",{
+     fetch("https://chat-app-whatsapp-backend.vercel.app/signin",{
   method:"POST",
    headers: {
     "Content-Type": "application/json",
