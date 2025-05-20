@@ -100,7 +100,7 @@ const [fet, setfet] = useState(true)
 
       {/* Mobile View */}
    <div className=' w-[100vw] md:hidden bg-black h-[100vh]'>
-         <div className='flex justify-between w-[100%] bg-black fixed px-1 h-[5vh] items-center border-b text-white'>
+         <div className='flex justify-between w-[100%] bg-black sticky px-1 h-[5vh] items-center border-b text-white'>
           <p className=''>{contact.username}</p>
           <h1 className='text-green-500 text-2xl'><a href='/'>WhatsApp</a></h1>
         </div>
