@@ -63,7 +63,7 @@ const [fet, setfet] = useState(true)
     const amPm = time.getHours() < 12 ? 'AM' : 'PM'
     try {
      
-      await fetch("https://chat-app-whatsapp-backend.vercel.app/message", {
+     const data =  await fetch("https://chat-app-whatsapp-backend.vercel.app/message", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -77,6 +77,8 @@ const [fet, setfet] = useState(true)
           seen:false
         }),
       });
+const res = data.json()
+console.log(res)
 
       inputRef.current.value = '';  
       setfet(true);
