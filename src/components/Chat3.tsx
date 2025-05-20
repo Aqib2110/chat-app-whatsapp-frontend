@@ -72,6 +72,7 @@ const [fet, setfet] = useState(true)
   };
 
 
+
   return (
     <>
       {/* Desktop View */}
@@ -99,22 +100,20 @@ const [fet, setfet] = useState(true)
       </div>
 
       {/* Mobile View */}
-   <div className=' w-[100vw]  block md:hidden bg-black h-[100vh]'>
-         <div className='flex justify-between w-[100%] bg-black top-0 fixed px-1 h-[5vh] items-center border-b text-white'>
+   <div className=' w-[100vw] border text-white block md:hidden bg-black h-[100vh]'>
+         <div className='flex justify-between w-[100%] bg-black fixed top-0 px-1 h-[5vh] items-center border-b text-white'>
           <p className=''>{contact.username}</p>
           <h1 className='text-green-500 text-2xl'><a href='/'>WhatsApp</a></h1>
         </div>
        
-        <div className='h-[80vh] border  my-[5vh]  flex flex-col text-white'>
-          
+        <div className='h-[90vh] py-[5vh] flex flex-col text-white'>
           { loading ? (
   <div className="flex items-center justify-center h-full text-gray-300 text-lg">
     Loading...
   </div>
 ) : messag.length === 0 ? (
             <div className='flex mt-55 self-center'>No Messages</div>
-          ) : (
-          
+          ) : (    
             messag.map((msg: any) => (
               <div key={msg._id + Math.random()} className='text-white m-2' style={{ display: 'flex', justifyContent: msg.senderId === sender ? "end" : "start" }}>
                 {msg.content}
@@ -122,7 +121,7 @@ const [fet, setfet] = useState(true)
             ))
           )}
         </div>
-        <div className='flex justify-center bg-white border bottom-0  fixed w-[100%] items-center  h-[5vh] text-white mb-0 gap-5'>
+        <div className='flex justify-center bg-white fixed bottom-0 w-[100%] items-center  h-[5vh] text-white mb-0 gap-5'>
           <input type="text" ref={inputRef1} className='bg-white ml-1 w-[77%] px-2 h-[90%]  text-black' placeholder='Message...' />
           <button onClick={() => sendMessage(inputRef1)} className='bg-white text-black h-[90%] py-1 w-[20%]'>send</button>
         </div>
@@ -132,10 +131,3 @@ const [fet, setfet] = useState(true)
 };
 
 export default memo(Chat3);
-
-
-
-
-
-
-
