@@ -71,6 +71,7 @@ const [fet, setfet] = useState(true)
     }
   };
 
+
   return (
     <>
       {/* Desktop View */}
@@ -123,10 +124,10 @@ const [fet, setfet] = useState(true)
             ))
           )}
         </div>
-          <div className='flex justify-center  w-[100%] items-center  h-[5vh] text-white mb-0 gap-5'>
+          {/* <div className='flex justify-center  w-[100%] items-center  h-[5vh] text-white mb-0 gap-5'>
          
-        </div>
-        <div className='flex justify-center border bottom-0  absolute w-[100%] items-center  h-[5vh] text-white mb-0 gap-5'>
+        </div> */}
+        <div className='flex justify-center border bottom-0  fixed w-[100%] items-center  h-[5vh] text-white mb-0 gap-5'>
           <input type="text" ref={inputRef1} className='bg-white ml-1 w-[77%] px-2 h-[90%]  text-black' placeholder='Message...' />
           <button onClick={() => sendMessage(inputRef1)} className='bg-white text-black h-[90%] py-1 w-[20%]'>send</button>
         </div>
@@ -136,6 +137,8 @@ const [fet, setfet] = useState(true)
 };
 
 export default memo(Chat3);
+
+
 
 
 
