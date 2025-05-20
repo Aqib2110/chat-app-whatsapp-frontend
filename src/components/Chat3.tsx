@@ -73,7 +73,7 @@ const [fet, setfet] = useState(true)
           senderId: sender,
           receiverId: contact._id,
           content: message,
-          createdAt:`${hour}:${min} ${amPm}`,
+         createdAt: new Date().toISOString(),
           seen:false
         }),
       });
