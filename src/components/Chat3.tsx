@@ -121,7 +121,7 @@ const [fet, setfet] = useState(true)
             ))
           )}
         </div>
-        <div className='flex justify-center bg-white fixed bottom-0 w-[100%] items-center  h-[5vh] text-white mb-0 gap-5'>
+        <div className='flex justify-center bg-black fixed bottom-0 w-[100%] items-center  h-[5vh] text-white mb-0 gap-5'>
           <input type="text" ref={inputRef1} className='bg-white ml-1 w-[77%] px-2 h-[90%]  text-black' placeholder='Message...' />
           <button onClick={() => sendMessage(inputRef1)} className='bg-white text-black h-[90%] py-1 w-[20%]'>send</button>
         </div>
