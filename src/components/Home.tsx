@@ -5,7 +5,7 @@ import { useEffect, useState, useRef, useMemo } from 'react';
 const Home = () => {
   const navigate = useNavigate();
   const input1 = useRef(null);
-  const [close, setClose] = useState(false);
+  const [close, setClose] = useState('');
   const [open, setOpen] = useState(false);
   const [data, setData] = useState([]);
   const [users, setUsers] = useState([]);
@@ -43,13 +43,9 @@ const Home = () => {
 
   const timerRef = useRef<any>(null);
   const handleChange = (val: any) => {
-    if(val === '') {
-      setClose(false);
-      return;
-    }
-    else if (timerRef.current) clearTimeout(timerRef.current);
+      setClose(val);
+  if (timerRef.current) clearTimeout(timerRef.current);
     timerRef.current = setTimeout(() => {
-      setClose(true);
       fetch("https://chat-app-whatsapp-backend.vercel.app/contacts", {
         method: "POST",
         headers: {
@@ -59,7 +55,7 @@ const Home = () => {
         body: JSON.stringify({ user: val }),
       })
         .then(res => res.json())
-        .then(datas => setData(datas.user || []))
+        .then(datas => {setData(datas.user || [])})
         .catch(console.log);
     }, 500);
   };
@@ -72,7 +68,7 @@ const Home = () => {
   const handleClick = (user: any) => {
     //@ts-ignore
     setUsers(prev => [...prev, user]);
-    setClose(false);
+    setClose('');
   };
 
   const handleContactClickMobile = (user: any) => {
@@ -105,7 +101,7 @@ const Home = () => {
                 );
               }) )}
             </div>
-            {close && (
+            {close !== '' && (
               <div className='h-[70vh] w-[80%]  top-[10%] left-[10%] border  flex flex-col  gap-3 absolute bg-white'>
                 {data.length > 0 ? data.map((user: any) => (
                   <div key={user._id} className='border m-2 justify-between flex text-black'>
@@ -160,6 +156,7 @@ const Home = () => {
 };
 
 export default Home;
+
 
 
 
