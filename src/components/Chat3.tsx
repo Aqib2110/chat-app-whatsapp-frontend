@@ -101,12 +101,12 @@ const [fet, setfet] = useState(true)
 
       {/* Mobile View */}
    <div className=' w-[100vw] border text-white block md:hidden bg-black h-[100vh]'>
-         <div className='flex justify-between w-[100%] bg-black sticky top-0 px-1 h-[5vh] items-center border-b text-white'>
+         <div className='flex justify-between w-[100%] bg-black fixed top-0 px-1 h-[5vh] items-center border-b text-white'>
           <p className=''>{contact.username}</p>
           <h1 className='text-green-500 text-2xl'><a href='/'>WhatsApp</a></h1>
         </div>
        
-        <div className='h-[100vh] overflow-auto py-[5vh] flex flex-col text-white'>
+        <div className=' overflow-auto py-[5vh] flex flex-col text-white'>
           { loading ? (
   <div className="flex items-center justify-center h-full text-gray-300 text-lg">
     Loading...
