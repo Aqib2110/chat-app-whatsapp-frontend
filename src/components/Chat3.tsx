@@ -57,10 +57,6 @@ const [fet, setfet] = useState(true)
   const sendMessage = async (inputRef:any) => {
     const message = inputRef.current?.value || "";
     if (!message) return;
-    const time = new Date();
-    const hour = time.getHours();
-    const min = time.getMinutes();
-    const amPm = time.getHours() < 12 ? 'AM' : 'PM'
     try {
      
      const data =  await fetch("https://chat-app-whatsapp-backend.vercel.app/message", {
