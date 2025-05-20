@@ -106,7 +106,7 @@ const [fet, setfet] = useState(true)
           <h1 className='text-green-500 text-2xl'><a href='/'>WhatsApp</a></h1>
         </div>
        
-        <div className='h-[90vh] py-[5vh] flex flex-col text-white'>
+        <div className='h-[100vh] py-[5vh] flex flex-col text-white'>
           { loading ? (
   <div className="flex items-center justify-center h-full text-gray-300 text-lg">
     Loading...
