@@ -13,6 +13,7 @@ const Home = () => {
   const [contactSelect, setContactSelect] = useState('');
   const token = useMemo(() => localStorage.getItem("token"), []);
   const sender = useMemo(() => localStorage.getItem("id"), []);
+  const [load, setload] = useState(false);
 
   useEffect(() => {
     if (!token || !sender) navigate("/signin");
@@ -20,6 +21,7 @@ const Home = () => {
 
   useEffect(() => {
     try {
+      setload(true);
         fetch("https://chat-app-whatsapp-backend.vercel.app/mycontacts", {
       method: "POST",
       headers: {
@@ -29,7 +31,9 @@ const Home = () => {
       body: JSON.stringify({ receiverId: sender })
     })
       .then(res => res.json())
-      .then(data => setUsers(data.users || []))
+      .then(data => {setUsers(data.users || [])
+              setload(false);
+      })
       .catch(err=>console.log(err));
     } catch (error) {
       console.log(error)
@@ -78,24 +82,28 @@ const Home = () => {
   };
 
   const memoizedContact = useMemo(() => contact, [contact]);
-return (
- <>
+
+  return (
+    <>
       {!open ? (
         <div className='h-[100vh] md:hidden w-[100vw] flex'>
           <div className='w-[100vw] text-white bg-black border-r h-[100vh]'>
-            <div className='h-[50px]'>
+            <div className='text-green-700 flex justify-center'>
+<h1 className='text-xl'>Whatsapp</h1>
+            </div>
+            <div className='h-[50px] m-2'>
               <input onChange={(e) => handleChange(e.target.value)} type="text" ref={input1} className='rounded-md w-full p-3' placeholder='search contact...' />
             </div>
             <p className='m-2'>Your Contacts</p>
             <div>
-              {users?.map((user: any) => {
+              {load ? <div className='flex justify-center'>Loading...</div> : (users?.map((user: any) => {
                 if (user._id === sender) return null;
                 return (
                   <div key={user._id} className={`cursor-pointer my-3 px-3 py-2 w-full text-white border ${contactSelect === user.email ? 'border-green-500' : 'border-white'}`}>
                     <p onClick={() => handleContactClickMobile(user)}>{user.username}</p>
                   </div>
                 );
-              })}
+              }) )}
             </div>
             {close && (
               <div className='h-[70vh] w-[80%]  top-[10%] left-[10%] border  flex flex-col  gap-3 absolute bg-white'>
@@ -152,4 +160,6 @@ return (
 };
 
 export default Home;
+
+
 
