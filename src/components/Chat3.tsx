@@ -23,6 +23,14 @@ const [fet, setfet] = useState(true)
       .catch(console.log);
       setfet(false);
             setloading(false);
+         fetch("https://chat-app-whatsapp-backend.vercel.app/chatseen", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
+      body: JSON.stringify({ receiveid: contact._id, senderid: sender }),
+    }).then(res=>res.json()).catch(err=>err)
    }    
   }, [contact._id, sender, token,fet]);
     useEffect(() => {
@@ -73,7 +81,7 @@ const [fet, setfet] = useState(true)
 
 
 
-  return (
+return (
     <>
       {/* Desktop View */}
       <div className=' hidden md:block bg-black h-full'>
@@ -86,9 +94,15 @@ const [fet, setfet] = useState(true)
             <div className='flex mt-55 self-center'>No Messages</div>
           ) : (
             
-            messag.map((msg: any) => (
-              <div key={msg._id + Math.random()} className='text-white m-2' style={{ display: 'flex', justifyContent: msg.senderId === sender ? "end" : "start" }}>
-                {msg.content}
+             messag.map((msg: any) => (
+              <div key={msg._id + Math.random()} className='text-white my-1  ' style={{ display: 'flex', justifyContent: msg.senderId === sender ? "end" : "start" }}>
+               <span className='border rounded-md relative px-3 py-2'>{msg.content}
+                <span className='text-white text-[10px] bottom-0 right-3 absolute'>{msg.createdAt}</span>
+                <span style={{
+                  color:true ? "blue" : "white",
+                  display:msg.senderId == sender ? "block" : "none"
+                }} className='text-[10px] absolute bottom-0 right-1'>✓</span>
+                </span> 
               </div>
             ))
           )}
@@ -106,7 +120,7 @@ const [fet, setfet] = useState(true)
           <h1 className='text-green-500 text-2xl'><a href='/'>WhatsApp</a></h1>
         </div>
        
-        <div className=' overflow-auto py-[5vh] flex flex-col text-white'>
+        <div className='py-[5vh] flex flex-col text-white'>
           { loading ? (
   <div className="flex items-center justify-center h-full text-gray-300 text-lg">
     Loading...
@@ -115,8 +129,14 @@ const [fet, setfet] = useState(true)
             <div className='flex mt-55 self-center'>No Messages</div>
           ) : (    
             messag.map((msg: any) => (
-              <div key={msg._id + Math.random()} className='text-white m-2' style={{ display: 'flex', justifyContent: msg.senderId === sender ? "end" : "start" }}>
-                {msg.content}
+              <div key={msg._id + Math.random()} className='text-white my-1  ' style={{ display: 'flex', justifyContent: msg.senderId === sender ? "end" : "start" }}>
+               <span className='border rounded-md relative px-3 py-2'>{msg.content}
+                <span className='text-white text-[10px] bottom-0 right-3 absolute'>{msg.createdAt}</span>
+                <span style={{
+                  color:true ? "blue" : "white",
+                  display:msg.senderId == sender ? "block" : "none"
+                }} className='text-[10px] absolute bottom-0 right-1'>✓</span>
+                </span> 
               </div>
             ))
           )}
@@ -131,3 +151,5 @@ const [fet, setfet] = useState(true)
 };
 
 export default memo(Chat3);
+
+
