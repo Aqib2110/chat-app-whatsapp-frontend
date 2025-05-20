@@ -57,6 +57,10 @@ const [fet, setfet] = useState(true)
   const sendMessage = async (inputRef:any) => {
     const message = inputRef.current?.value || "";
     if (!message) return;
+    const time = new Date();
+    const hour = time.getHours();
+    const min = time.getMinutes();
+    const amPm = time.getHours() < 12 ? 'AM' : 'PM'
     try {
      
       await fetch("https://chat-app-whatsapp-backend.vercel.app/message", {
@@ -69,6 +73,8 @@ const [fet, setfet] = useState(true)
           senderId: sender,
           receiverId: contact._id,
           content: message,
+          createdAt:`${hour}:${min} ${amPm}`,
+          seen:false
         }),
       });
 
@@ -99,7 +105,7 @@ return (
                <span className='border rounded-md relative px-3 py-2'>{msg.content}
                 <span className='text-white text-[10px] bottom-0 right-3 absolute'>{msg.createdAt}</span>
                 <span style={{
-                  color:true ? "blue" : "white",
+                  color:msg.seen ? "blue" : "white",
                   display:msg.senderId == sender ? "block" : "none"
                 }} className='text-[10px] absolute bottom-0 right-1'>✓</span>
                 </span> 
@@ -133,7 +139,7 @@ return (
                <span className='border rounded-md relative px-3 py-2'>{msg.content}
                 <span className='text-white text-[10px] bottom-0 right-3 absolute'>{msg.createdAt}</span>
                 <span style={{
-                  color:true ? "blue" : "white",
+                  color:msg.seen ? "blue" : "white",
                   display:msg.senderId == sender ? "block" : "none"
                 }} className='text-[10px] absolute bottom-0 right-1'>✓</span>
                 </span> 
