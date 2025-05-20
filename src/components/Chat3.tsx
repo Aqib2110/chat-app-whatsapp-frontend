@@ -99,15 +99,13 @@ const [fet, setfet] = useState(true)
       </div>
 
       {/* Mobile View */}
-   <div className=' w-[100vw] md:hidden bg-black h-[100vh]'>
-         <div className='flex justify-between w-[100%] bg-black sticky px-1 h-[5vh] items-center border-b text-white'>
+   <div className=' w-[100vw]  block md:hidden bg-black h-[100vh]'>
+         <div className='flex justify-between w-[100%] bg-black top-0 fixed px-1 h-[5vh] items-center border-b text-white'>
           <p className=''>{contact.username}</p>
           <h1 className='text-green-500 text-2xl'><a href='/'>WhatsApp</a></h1>
         </div>
-         <div className='flex justify-between w-[100%]  px-1 h-[5vh] items-center border-b text-white'>
-        
-        </div>
-        <div className='h-[90vh] border flex flex-col overflow-auto text-white'>
+       
+        <div className='h-[80vh] border  my-[5vh]  flex flex-col text-white'>
           
           { loading ? (
   <div className="flex items-center justify-center h-full text-gray-300 text-lg">
@@ -124,10 +122,7 @@ const [fet, setfet] = useState(true)
             ))
           )}
         </div>
-          {/* <div className='flex justify-center  w-[100%] items-center  h-[5vh] text-white mb-0 gap-5'>
-         
-        </div> */}
-        <div className='flex justify-center border bottom-0  fixed w-[100%] items-center  h-[5vh] text-white mb-0 gap-5'>
+        <div className='flex justify-center bg-white border bottom-0  fixed w-[100%] items-center  h-[5vh] text-white mb-0 gap-5'>
           <input type="text" ref={inputRef1} className='bg-white ml-1 w-[77%] px-2 h-[90%]  text-black' placeholder='Message...' />
           <button onClick={() => sendMessage(inputRef1)} className='bg-white text-black h-[90%] py-1 w-[20%]'>send</button>
         </div>
