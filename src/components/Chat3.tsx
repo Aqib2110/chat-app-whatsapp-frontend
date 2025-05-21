@@ -104,7 +104,7 @@ return (
                 <span style={{
                   color:msg.seen ? "blue" : "white",
                   display:msg.senderId == sender ? "block" : "none"
-                }} className='text-[10px] absolute bottom-0 right-1'>✓✓</span>
+                }} className='text-[10px] absolute bottom-0 left-1'>✓✓</span>
                 </span> 
               </div>
             ))
@@ -138,7 +138,7 @@ return (
                 <span style={{
                   color:msg.seen ? "blue" : "white",
                   display:msg.senderId == sender ? "block" : "none"
-                }} className='text-[10px] absolute bottom-0 right-1'>✓✓</span>
+                }} className='text-[10px] absolute bottom-0 left-1'>✓✓</span>
                 </span> 
               </div>
             ))
