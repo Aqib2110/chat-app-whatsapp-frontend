@@ -48,6 +48,15 @@ const [fet, setfet] = useState(true)
       .then(res => res.json())
       .then(data => {setMessag(data.messages || [])})
       .catch(console.log);
+
+     fetch("https://chatting-app-whatsapp-backend.vercel.app/chatseen", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
+      body: JSON.stringify({ receiveid: contact._id, senderid: sender }),
+    }).then(res=>res.json()).catch(err=>err)
  }, 10000);
  return ()=>{
   clearInterval(intervalid);
