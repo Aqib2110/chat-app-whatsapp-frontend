@@ -131,7 +131,7 @@ return (
 
       {/* Mobile View */}
    <div className=' w-[100vw] border text-white block md:hidden bg-black h-[100vh]'>
-         <div className='flex justify-between w-[100%] bg-black fixed top-0 px-1 h-[5vh] items-center border-b text-white'>
+         <div className='flex z-10 justify-between w-[100%] bg-black fixed top-0 px-1 h-[5vh] items-center border-b text-white'>
           <p className=''>{contact.username}</p>
           <h1 className='text-green-500 text-2xl'><a href='/'>WhatsApp</a></h1>
         </div>
