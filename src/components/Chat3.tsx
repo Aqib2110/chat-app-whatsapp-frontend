@@ -117,7 +117,7 @@ return (
                   background:msg.senderId === sender ? "green" : "grey"
                }} className='border rounded-md relative mx-1 px-3 py-2'>{msg.content}
                 <span style={{
-                  color:true ? "blue" : "white",
+                  color:msg.seen ? "blue" : "white",
                   display:msg.senderId == sender ? "block" : "none"
                 }} className='text-[10px] absolute bottom-0 right-1'>✓✓</span>
                 </span> 
@@ -154,7 +154,7 @@ return (
                   background:msg.senderId === sender ? "green" : "grey"
                }} className='border rounded-md mx-1 relative px-3 py-2'>{msg.content}
                 <span style={{
-                  color:true ? "blue" : "white",
+                  color:msg.seen ? "blue" : "white",
                   display:msg.senderId == sender ? "block" : "none"
                 }} className='text-[10px] absolute bottom-0 right-1'>✓✓</span>
                 </span> 
