@@ -11,7 +11,7 @@ const [load, setload] = useState(false);
     const email = form.get("email");
     const password = form.get("password");
     setload(true);
-     fetch("https://chat-app-whatsapp-backend.vercel.app/signin",{
+     fetch("https://chatting-app-whatsapp-backend.vercel.app/signin",{
   method:"POST",
    headers: {
     "Content-Type": "application/json",
