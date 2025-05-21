@@ -12,7 +12,7 @@ const navigate = useNavigate();
     const email = form.get("email");
     const password = form.get("password");
   setloading(true)
-   fetch("https://chat-app-whatsapp-backend.vercel.app/signup",{
+   fetch("https://chatting-app-whatsapp-backend.vercel.app/signup",{
   method:"POST",
    headers: {
     "Content-Type": "application/json",
