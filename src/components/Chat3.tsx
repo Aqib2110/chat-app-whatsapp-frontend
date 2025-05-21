@@ -115,7 +115,7 @@ return (
                 {msg._id && <div key={msg._id + Math.random()} className='text-white my-1  ' style={{ display: 'flex', justifyContent: msg.senderId === sender ? "end" : "start" }}>
                <span style={{
                   background:msg.senderId === sender ? "green" : "grey"
-               }} className='border rounded-md relative px-3 py-2'>{msg.content}
+               }} className='border rounded-md relative mx-1 px-3 py-2'>{msg.content}
                 <span style={{
                   color:true ? "blue" : "white",
                   display:msg.senderId == sender ? "block" : "none"
@@ -152,7 +152,7 @@ return (
                 {msg._id && <div key={msg._id + Math.random()} className='text-white my-1  ' style={{ display: 'flex', justifyContent: msg.senderId === sender ? "end" : "start" }}>
                <span style={{
                   background:msg.senderId === sender ? "green" : "grey"
-               }} className='border rounded-md relative px-3 py-2'>{msg.content}
+               }} className='border rounded-md mx-1 relative px-3 py-2'>{msg.content}
                 <span style={{
                   color:true ? "blue" : "white",
                   display:msg.senderId == sender ? "block" : "none"
