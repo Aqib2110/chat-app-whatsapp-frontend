@@ -67,7 +67,10 @@ const [fet, setfet] = useState(true)
     const message = inputRef.current?.value || "";
     if (!message) return;
     try {
-     
+      const time = new Date();
+    const hour = time.getHours();
+    const min = time.getMinutes();
+    const amPm = time.getHours() < 12 ? 'AM' : 'PM'
      const data =  await fetch("https://chatting-app-whatsapp-backend.vercel.app/message", {
         method: "POST",
         headers: {
@@ -78,6 +81,7 @@ const [fet, setfet] = useState(true)
           senderId: sender,
           receiverId: contact._id,
           content: message,
+        createdAt:`${hour}:${min} ${amPm}`,
           seen:false
         }),
       });
