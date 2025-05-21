@@ -113,12 +113,13 @@ return (
              messag.map((msg: any) => (
                 <>
                 {msg._id && <div key={msg._id + Math.random()} className='text-white my-1  ' style={{ display: 'flex', justifyContent: msg.senderId === sender ? "end" : "start" }}>
-               <span className='border rounded-md relative px-3 py-2'>{msg.content}
-                <span className='text-white text-[10px] bottom-0 right-3 absolute'>{msg.createdAt}</span>
+               <span style={{
+                  background:msg.senderId === sender ? "green" : "grey"
+               }} className='border rounded-md relative px-3 py-2'>{msg.content}
                 <span style={{
                   color:true ? "blue" : "white",
                   display:msg.senderId == sender ? "block" : "none"
-                }} className='text-[10px] absolute bottom-0 right-1'>✓</span>
+                }} className='text-[10px] absolute bottom-0 right-1'>✓✓</span>
                 </span> 
               </div>}
               </>
@@ -149,12 +150,13 @@ return (
             messag.map((msg: any) => (
                 <>
                 {msg._id && <div key={msg._id + Math.random()} className='text-white my-1  ' style={{ display: 'flex', justifyContent: msg.senderId === sender ? "end" : "start" }}>
-               <span className='border rounded-md relative px-3 py-2'>{msg.content}
-                <span className='text-white text-[10px] bottom-0 right-3 absolute'>{msg.createdAt}</span>
+               <span style={{
+                  background:msg.senderId === sender ? "green" : "grey"
+               }} className='border rounded-md relative px-3 py-2'>{msg.content}
                 <span style={{
                   color:true ? "blue" : "white",
                   display:msg.senderId == sender ? "block" : "none"
-                }} className='text-[10px] absolute bottom-0 right-1'>✓</span>
+                }} className='text-[10px] absolute bottom-0 right-1'>✓✓</span>
                 </span> 
               </div>}
               </>
