@@ -136,7 +136,7 @@ return (
           <h1 className='text-green-500 text-2xl'><a href='/'>WhatsApp</a></h1>
         </div>
        
-        <div className='py-[5vh] flex flex-col text-white'>
+        <div className='py-[5vh] overflow-auto flex flex-col text-white'>
           { loading ? (
   <div className="flex items-center justify-center h-full text-gray-300 text-lg">
     Loading...
