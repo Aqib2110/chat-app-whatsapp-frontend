@@ -111,16 +111,17 @@ return (
           ) : (
             
              messag.map((msg: any) => (
-              <div  key={msg._id + Math.random()} className='text-white my-1 ' style={{ display: 'flex', justifyContent: msg.senderId === sender ? "end" : "start"}}>
-               <span style={{
-                background:msg.senderId === sender ? "green" : "grey"
-               }} className='border  rounded-md relative px-3 mx-1 py-2'>{msg.content}
+                <>
+                {msg._id && <div key={msg._id + Math.random()} className='text-white my-1  ' style={{ display: 'flex', justifyContent: msg.senderId === sender ? "end" : "start" }}>
+               <span className='border rounded-md relative px-3 py-2'>{msg.content}
+                <span className='text-white text-[10px] bottom-0 right-3 absolute'>{msg.createdAt}</span>
                 <span style={{
-                  color:msg.seen ? "blue" : "white",
+                  color:true ? "blue" : "white",
                   display:msg.senderId == sender ? "block" : "none"
-                }} className='text-[10px] absolute bottom-0 right-3'>✓✓</span>
+                }} className='text-[10px] absolute bottom-0 right-1'>✓</span>
                 </span> 
-              </div>
+              </div>}
+              </>
             ))
           )}
         </div>
@@ -146,16 +147,17 @@ return (
             <div className='flex mt-55 self-center'>No Messages</div>
           ) : (    
             messag.map((msg: any) => (
-              <div key={msg._id + Math.random()} className='text-white my-1  ' style={{ display: 'flex', justifyContent: msg.senderId === sender ? "end" : "start" }}>
-               <span style={{
-                background:msg.senderId === sender ? "green" : "grey"
-               }} className='border rounded-md relative mx-1 px-3 py-2'>{msg.content}
+                <>
+                {msg._id && <div key={msg._id + Math.random()} className='text-white my-1  ' style={{ display: 'flex', justifyContent: msg.senderId === sender ? "end" : "start" }}>
+               <span className='border rounded-md relative px-3 py-2'>{msg.content}
+                <span className='text-white text-[10px] bottom-0 right-3 absolute'>{msg.createdAt}</span>
                 <span style={{
-                  color:msg.seen ? "blue" : "white",
+                  color:true ? "blue" : "white",
                   display:msg.senderId == sender ? "block" : "none"
-                }} className='text-[10px] absolute bottom-0 right-3'>✓✓</span>
+                }} className='text-[10px] absolute bottom-0 right-1'>✓</span>
                 </span> 
-              </div>
+              </div>}
+              </>
             ))
           )}
         </div>
