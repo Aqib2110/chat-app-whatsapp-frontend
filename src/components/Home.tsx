@@ -22,7 +22,7 @@ const Home = () => {
   useEffect(() => {
     try {
       setload(true);
-        fetch("https://chat-app-whatsapp-backend.vercel.app/mycontacts", {
+        fetch("https://chatting-app-whatsapp-backend.vercel.app/mycontacts", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -46,7 +46,7 @@ const Home = () => {
       setClose(val);
   if (timerRef.current) clearTimeout(timerRef.current);
     timerRef.current = setTimeout(() => {
-      fetch("https://chat-app-whatsapp-backend.vercel.app/contacts", {
+      fetch("https://chatting-app-whatsapp-backend.vercel.app/contacts", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
