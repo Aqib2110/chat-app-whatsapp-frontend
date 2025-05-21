@@ -113,7 +113,7 @@ return (
              messag.map((msg: any) => (
               <div  key={msg._id + Math.random()} className='text-white my-1 ' style={{ display: 'flex', justifyContent: msg.senderId === sender ? "end" : "start"}}>
                <span style={{
-                background:msg.senderId === sender ? "green" : "grey"
+                background:msg.senderId === sender ? "#48bb78" : "grey"
                }} className='border  rounded-md relative px-3 mx-1 py-2'>{msg.content}
                 <span style={{
                   color:msg.seen ? "blue" : "white",
@@ -148,7 +148,7 @@ return (
             messag.map((msg: any) => (
               <div key={msg._id + Math.random()} className='text-white my-1  ' style={{ display: 'flex', justifyContent: msg.senderId === sender ? "end" : "start" }}>
                <span style={{
-                background:msg.senderId === sender ? "green" : "grey"
+                background:msg.senderId === sender ? "#48bb78" : "grey"
                }} className='border rounded-md relative mx-1 px-3 py-2'>{msg.content}
                 <span style={{
                   color:msg.seen ? "blue" : "white",
