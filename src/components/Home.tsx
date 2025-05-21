@@ -85,7 +85,7 @@ const Home = () => {
         <div className='h-[100vh] md:hidden w-[100vw] flex'>
           <div className='w-[100vw] text-white bg-black border-r h-[100vh]'>
             <div className='text-green-700 flex justify-center'>
-<h1 className='text-xl'>Whatsapp</h1>
+<h1 className='text-2xl '>Whatsapp</h1>
             </div>
             <div className='h-[50px] m-2'>
               <input onChange={(e) => handleChange(e.target.value)} type="text" ref={input1} className='rounded-md w-full p-3' placeholder='search contact...' />
