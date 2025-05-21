@@ -10,7 +10,7 @@ const [fet, setfet] = useState(true)
    if(fet)
     {
       setloading(true);
-     fetch("https://chat-app-whatsapp-backend.vercel.app/chat", {
+     fetch("https://chatting-app-whatsapp-backend.vercel.app/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -23,7 +23,7 @@ const [fet, setfet] = useState(true)
       .catch(console.log);
       setfet(false);
             setloading(false);
-         fetch("https://chat-app-whatsapp-backend.vercel.app/chatseen", {
+         fetch("https://chatting-app-whatsapp-backend.vercel.app/chatseen", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -37,7 +37,7 @@ const [fet, setfet] = useState(true)
     if (!contact._id) return;
     let intervalid:any;
  intervalid = setInterval(() => {
-    fetch("https://chat-app-whatsapp-backend.vercel.app/chat", {
+    fetch("https://chatting-app-whatsapp-backend.vercel.app/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -59,7 +59,7 @@ const [fet, setfet] = useState(true)
     if (!message) return;
     try {
      
-     const data =  await fetch("https://chat-app-whatsapp-backend.vercel.app/message", {
+     const data =  await fetch("https://chatting-app-whatsapp-backend.vercel.app/message", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -100,7 +100,7 @@ return (
              messag.map((msg: any) => (
               <div key={msg._id + Math.random()} className='text-white my-1  ' style={{ display: 'flex', justifyContent: msg.senderId === sender ? "end" : "start" }}>
                <span className='border rounded-md relative px-3 py-2'>{msg.content}
-                <span className='text-white text-[10px] bottom-0 right-3 absolute'>{msg.createdAt}</span>
+                <span className='text-white text-[10px] bottom-0 right-3 absolute'>a</span>
                 <span style={{
                   color:msg.seen ? "blue" : "white",
                   display:msg.senderId == sender ? "block" : "none"
@@ -134,7 +134,7 @@ return (
             messag.map((msg: any) => (
               <div key={msg._id + Math.random()} className='text-white my-1  ' style={{ display: 'flex', justifyContent: msg.senderId === sender ? "end" : "start" }}>
                <span className='border rounded-md relative px-3 py-2'>{msg.content}
-                <span className='text-white text-[10px] bottom-0 right-3 absolute'>{msg.createdAt}</span>
+                <span className='text-white text-[10px] bottom-0 right-3 absolute'>a</span>
                 <span style={{
                   color:msg.seen ? "blue" : "white",
                   display:msg.senderId == sender ? "block" : "none"
